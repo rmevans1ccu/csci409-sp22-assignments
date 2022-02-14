@@ -7,6 +7,7 @@ class AirlineAdmin(admin.ModelAdmin):
 
 class FlightAdmin(admin.ModelAdmin):
     fieldsets = [
+        ('Airline Information', {'fields': ['airline', 'flight_number']}),
         ('Origin/Destination', {'fields': ['origin', 'destination']}),
         ('Departure and Arrival Time', {'fields': ['departure', 'arrival'], 'classes': ['collapse']})
     ]
