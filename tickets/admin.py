@@ -8,6 +8,6 @@ class TicketInline(admin.StackedInline):
 
 class ReservationAdmin(admin.ModelAdmin):
     fields = ['flight', 'num_people', 'total_cost']
-    inlines = ['TicketInline']
+    inlines = [TicketInline]
 
 admin.site.register(Reservation, ReservationAdmin)
