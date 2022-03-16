@@ -10,6 +10,7 @@ def index(request):
 def flight_search(request, origin, destination):
     origin = Airport.objects.get(airport_code=origin)
     destination = Airport.objects.get(airport_code=destination)
+    # Code to select flights from the database
     flights = Flight.objects.filter(origin=origin.id, destination=destination.id)
     flight_list = ', '.join([f.origin.airport_code + "->" + f.destination.airport_code + " Airline Code: " + f.airline.airline_code for f in flights])
     return HttpResponse('Showing flights: ' + flight_list)
