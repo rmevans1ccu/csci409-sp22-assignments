@@ -13,5 +13,5 @@ def airport_info(request, airport_code):
     # Fetch the airport by a certain code
     # Remember as we are only expecting one airport per code we should use get
     airport = Airport.objects.get(airport_code=airport_code)
-    # Display the airport name and code
-    return HttpResponse('Showing info for airport: ' + airport.name + "- " + airport.airport_code)
+    context = {'airport': airport}
+    return render(request, 'airports/airport.html', context)
