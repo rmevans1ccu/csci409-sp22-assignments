@@ -3,6 +3,7 @@
 
 <!-- Add content to the content block in the main template -->
 {% block content %}
+<p>For testing purpose: using origin airport code MYR and destination airport code ANC</p>
 <form action="/flights/search/" method="post">
     <!-- Create a csrf token -->
     {% csrf_token %}
