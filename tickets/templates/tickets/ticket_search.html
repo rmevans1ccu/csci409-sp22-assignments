@@ -16,6 +16,37 @@
 </table>
 <!-- 5 Extra Credit Points  Create a table that displays the flight information -->
 <!-- This should display the airline, flight number, arrival and departure airports, and arrival and departure times -->
-
+<table class="table">
+    <tr>
+        <td><strong>Airline/Flight Number</strong></td>
+        <td>{{ reservation.flight.airline.airline_code}}{{ reservation.flight.flight_number}}</td>
+    </tr>
+    <tr>
+        <td><strong>Departure Airport and Time</strong></td>
+        <td>{{ reservation.flight.origin.airport_code}}- {{ reservation.flight.departure}}</td>
+    </tr>
+    <tr>
+        <td><strong>Arrival Airport and Time</strong></td>
+        <td>{{ reservation.flight.destination.airport_code}}- {{ reservation.flight.arrival}}</td>
+    </tr>
+</table>
 <!-- 5 Extra Credit Points Create a table that displays the ticket information -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Seat</th>
+            <th scope="col">Class</th>
+            <th scope="col">Ticket Cost</th>
+        </tr>
+    {% for ticket in reservation.ticket_set.all %}
+        <tr>
+            <td>{{ ticket.seat }}</td>
+            <td>{{ ticket.ticket_class}}</td>
+            <td>{{ ticket.cost}}</td>
+        </tr>
+    {% endfor %}
+    </thead>
+</table>
+
 {% endblock %}
